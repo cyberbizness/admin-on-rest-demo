@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "configuration": {
+      "url": "http://cyberbizness.ca",
+      "mail": {
+        "sender": "info@cyberbizness.ca",
+        "transport": {
+          "service": "fakemail",
+          "auth": {
+            "user": "fake@mail.com",
+            "pass": "f00b@r"
+          }
+        }
+      },
+      "file_type_whiltelist": [
+        "txt",
+        "doc",
+        "docx",
+        "xls",
+        "xlsx",
+        "pdf",
+        "png",
+        "jpg"
+      ]
+    }
+  }
+]

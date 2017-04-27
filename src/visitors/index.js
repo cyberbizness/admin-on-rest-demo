@@ -71,7 +71,7 @@ export const VisitorEdit = (props) => (
             <FormTab label="resources.customers.tabs.identity">
                 <TextInput source="first_name" style={{ display: 'inline-block' }} />
                 <TextInput source="last_name" style={{ display: 'inline-block', marginLeft: 32 }} />
-                <TextInput type="email" source="email" validation={{ email: true }} options={{ fullWidth: true }} style={{ width: 544 }} />
+                <TextInput type="email" source="email"  options={{ fullWidth: true }} style={{ width: 544 }} />
                 <DateInput source="birthday" />
             </FormTab>
             <FormTab label="resources.customers.tabs.address">

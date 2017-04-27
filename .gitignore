@@ -2,6 +2,12 @@
 
 # dependencies
 node_modules
+.idea
+*.iml
+*.IML
+
+# fichiers config
+config/dev.json
 
 # testing
 coverage

@@ -1,6 +1,36 @@
-# Admin-on-rest Demo
+# AOR-jsonapi-mongodb-demo
 
-This is a demo of the [admin-on-rest](https://github.com/marmelab/admin-on-rest) library for React.js. It creates a working administration for a fake poster shop named Posters Galore. You can test it online at http://marmelab.com/admin-on-rest-demo.
+Please update CONFIG DEFAULT.JSON + PATCH depedencies
+
+install data from folder /data into a mongodb store (see import.sh)
+
+________________________________________________________________________
+
+>Bug in aor-jsonapi-client !
+
+In : build/restClient.js
+
+Replace : json.meta['record-count']
+
+By : (json.meta.page)?json.meta.page['total']:0
+________________________________________________________________________
+
+> Install babel correctly
+
+npm install --save-dev babel-preset-es2015
+________________________________________________________________________
+
+Start the server :
+npm run server
+
+Start the frontend :
+npm start
+
+
+________________________________________________________________________
+________________________________________________________________________
+
+This is a demo of the [admin-on-rest](https://github.com/marmelab/admin-on-rest) library for React.js. It creates a working administration for a fake poster shop named "Affiches en gros". You can test it online at http://marmelab.com/admin-on-rest-demo.
 
 Admin-on-rest usually requires a REST server to provide data. In this demo however, the REST server is simulated by the browser (using [FakeRest](https://github.com/marmelab/FakeRest)). You can see the source data in [public/data.js](https://github.com/marmelab/admin-on-rest-demo/tree/master/public/data.js).
 
