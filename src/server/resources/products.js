@@ -37,7 +37,9 @@ jsonApi.define({
       .description('.'),
   },
   attributes: {
-    id: cacheJsonApi.Joi.number()
+    _id: cacheJsonApi.Joi
+      .description('MongoDB ObjectId'),
+    id: jsonApi.Joi.alternatives().try(jsonApi.Joi.string(), jsonApi.Joi.number())
       .description('.'),
     type: cacheJsonApi.Joi.string().default(0)
       .description('.')
