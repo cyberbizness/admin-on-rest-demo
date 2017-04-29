@@ -13,6 +13,56 @@ In : build/restClient.js
 Replace : json.meta['record-count']
 
 By : (json.meta.page)?json.meta.page['total']:0
+
+
+> Bug : Unable to get document by id
+
+edit /node_modules/jsonapi-store-mongodb/lib/mongoHandler.js
+
+MongoStore.prototype.find = function(request, callback) {
+  var collection = this._db.collection(request.params.type);
+
+  // if value is UUID, convert it because field will probably be numeric too.
+  if (request.params.id.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i)){
+    request.params.id = MongoStore._mongoUuid(request.params.id);
+    field = '_id'
+  } else {
+    field = 'id'
+  }
+
+  // if value is numeric, convert it because field will probably be numeric too.
+  if (!isNaN(request.params.id)){
+    request.params.id  = parseInt(request.params.id);
+  }
+
+  debug("findOne", JSON.stringify({ [field]: request.params.id }));
+  collection.findOne({ [field]: request.params.id }, { [field]: 0 }, function(err, result) {
+    if (err || !result) {
+      return callback(MongoStore._notFoundError(request.params.type, request.params.id));
+    }
+    return callback(null, result);
+  });
+};
+
+
+> Bug : Some records are not show because
+In JSONAPI-Server, page[limit] are processed before filters[id]
+
+nano /node_modules/jsonapi-server/lib/pagination.js
+Line 33 Add:
+if (request.params.filter) page.limit=5000
+
+
+> Bug : Sometimes requests are made without id value... like empty string
+
+  jsonApi:handler:search {"type":"customers","page":{"offset":0,"limit":5000},"filter":{"has_ordered":["true"],"first_seen_gte":["2017-03-25T06:15:56.908Z"]},"sort":"-first_seen"} [null,[],0] +2ms
+  jsonApi:requestCounter 3 GET /cache/customers?filter%5Bid%5D= +555ms
+  jsonApi:validation:input {"type":"customers","filter":{"id":""}} +0ms
+  jsonApi:errors GET http://localhost:9001/cache/customers?filter%5Bid%5D= {"status":"403","code":"EFORBIDDEN","title":"Invalid filter","detail":"Filter value for key 'id' is invalid: invalid or empty filter element"} +2ms
+
+
+
+
 ________________________________________________________________________
 
 > Install babel correctly
