@@ -21,10 +21,12 @@ edit /node_modules/jsonapi-store-mongodb/lib/mongoHandler.js
 
 MongoStore.prototype.find = function(request, callback) {
   var collection = this._db.collection(request.params.type);
-
+  var field;
   // if value is UUID, convert it because field will probably be numeric too.
   if (request.params.id.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i)){
     request.params.id = MongoStore._mongoUuid(request.params.id);
+    field = '_id'
+  } else if ( request.params.id.match(/^[0-9a-fA-F]{24}$/i) ) {  // valid Mongo ObjectID
     field = '_id'
   } else {
     field = 'id'
