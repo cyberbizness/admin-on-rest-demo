@@ -18,7 +18,7 @@ import {
 } from 'admin-on-rest/lib/mui';
 import Icon from 'material-ui/svg-icons/communication/comment';
 
-import ProductReferenceField from '../products/ProductReferenceField';
+import ProductReferenceField from '../../modules/products/ProductReferenceField';
 import CustomerReferenceField from '../visitors/CustomerReferenceField';
 import StarRatingField from './StarRatingField';
 import ApproveButton from './ApproveButton';

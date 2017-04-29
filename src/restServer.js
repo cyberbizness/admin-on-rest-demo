@@ -1,11 +1,11 @@
+
 const server = module.exports = { }
-import config from '../config/default';
+import config from 'config';
 const jsonApi = require('jsonapi-server')
 const async = require("async")
 const fs = require('fs')
 const path = require('path')
 const debug = require('debug')
-
 
   jsonApi.setConfig({
     graphiql: false,
@@ -24,8 +24,8 @@ const debug = require('debug')
       }
     },
     protocol: 'http',
-    hostname: config.Api.host,
-    port: config.Api.port,
+    hostname: config.api.host,
+    port: config.api.port,
     meta: {
       description: 'Ce logiciel sert présentement dans le cadre d\'une étude.'
     }

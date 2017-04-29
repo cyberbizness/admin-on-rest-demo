@@ -6,7 +6,7 @@ import Avatar from 'material-ui/Avatar';
 import { translate } from 'admin-on-rest';
 import { Link } from 'react-router';
 
-import StarRatingField from '../reviews/StarRatingField';
+import StarRatingField from '../modules/reviews/StarRatingField';
 
 const styles = {
     titleLink: { textDecoration: 'none', color: '#000' },

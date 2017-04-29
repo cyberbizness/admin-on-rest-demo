@@ -16,11 +16,11 @@ import { Dashboard } from './dashboard';
 import CustomRoutes from './routes';
 import translations from './i18n';
 
-import { VisitorList, VisitorEdit, VisitorDelete, VisitorIcon } from './visitors';
-import { CommandList, CommandEdit, CommandIcon } from './commands';
-import { ProductList, ProductCreate, ProductEdit, ProductIcon } from './products';
-import { CategoryList, CategoryEdit, CategoryIcon } from './categories';
-import { ReviewList, ReviewEdit, ReviewIcon } from './reviews';
+import { VisitorList, VisitorEdit, VisitorDelete, VisitorIcon } from './modules/visitors';
+import { CommandList, CommandEdit, CommandIcon } from './modules/commands';
+import { ProductList, ProductCreate, ProductEdit, ProductIcon } from './modules/products';
+import { CategoryList, CategoryEdit, CategoryIcon } from './modules/categories';
+import { ReviewList, ReviewEdit, ReviewIcon } from './modules/reviews';
 
 import restClient from './restClient';
 // import restServer from './restServer';

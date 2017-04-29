@@ -1,8 +1,6 @@
-//const jsonApi = require('jsonapi-server')
-//module.exports = new jsonApi.MemoryHandler()
-
+import config from 'config';
 
 const MongoStore = require('jsonapi-store-mongodb');
 module.exports = new MongoStore({
-  url: "mongodb://10.36.0.22:27017/db_test",
+  url: `mongodb://${config.db.host}:${config.db.port}/${config.db.dbName}`,
 })

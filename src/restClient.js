@@ -7,7 +7,7 @@ import config from '../config/default';
 
 // JSONAPI
 import jsonAPIRestClient from 'aor-jsonapi-client/build/restClient';
-const restClient = jsonAPIRestClient('http://' + config.Api.host + ':' + config.Api.port); // no trailing slash (?)
+const restClient = jsonAPIRestClient('http://' + config.api.host + ':' + config.api.port); // no trailing slash (?)
 export default (type, resource, params) => new Promise(resolve => setTimeout(() => resolve(restClient(type, resource, params)), 500));
 
 // JSON

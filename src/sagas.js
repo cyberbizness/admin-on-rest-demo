@@ -1,4 +1,4 @@
-import reviewSaga from './reviews/reviewSaga';
+import reviewSaga from './modules/reviews/reviewSaga';
 
 export default [
     reviewSaga,

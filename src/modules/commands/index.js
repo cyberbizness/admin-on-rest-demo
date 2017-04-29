@@ -23,7 +23,7 @@ import Icon from 'material-ui/svg-icons/editor/attach-money';
 
 import Basket from './Basket';
 import NbItemsField from './NbItemsField';
-import CustomerReferenceField from '../visitors/CustomerReferenceField';
+import CustomerReferenceField from '../../modules/visitors/CustomerReferenceField';
 
 export const CommandIcon = Icon;
 

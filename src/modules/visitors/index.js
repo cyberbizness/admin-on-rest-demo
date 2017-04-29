@@ -21,10 +21,10 @@ import { translate } from 'admin-on-rest';
 
 import Icon from 'material-ui/svg-icons/social/person';
 
-import EditButton from '../buttons/EditButton';
+import EditButton from '../../buttons/EditButton';
 import NbItemsField from '../commands/NbItemsField';
-import ProductReferenceField from '../products/ProductReferenceField';
-import StarRatingField from '../reviews/StarRatingField';
+import ProductReferenceField from '../../modules/products/ProductReferenceField';
+import StarRatingField from '../../modules/reviews/StarRatingField';
 import FullNameField from './FullNameField';
 import SegmentsField from './SegmentsField';
 import SegmentsInput from './SegmentsInput';
